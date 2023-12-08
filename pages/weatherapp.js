@@ -11,7 +11,7 @@ const WeatherApplication = (props)=>{
             console.log(val.data.instant.details.air_temperature);
 
             return(<tr>
-              <td>{val.time}</td>
+              <td>{val.time.toLocaleString()}</td>
               <td>{val.data.instant.details.air_temperature}</td>
               <td>{val.data.next_1_hours.summary.symbol_code}</td>
               
