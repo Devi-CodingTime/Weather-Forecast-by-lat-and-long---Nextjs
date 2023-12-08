@@ -9,13 +9,11 @@ export default function Home() {
 
   async function getWeatherData(event){
     event.preventDefault();
-    console.log("lat :",lat);
-    console.log("lon :",lon);
-
-    let data = await fetch( `https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${lat}&lon=${lon}`);
-    let res = await data.json();
-    setweatherdata(res.properties.timeseries);
-    console.log(res.properties.timeseries);
+    if(lat&&lon){
+      let data = await fetch( `https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${lat}&lon=${lon}`);
+      let res = await data.json();
+      setweatherdata(res.properties.timeseries);
+    }
   }
   return (
     <>
